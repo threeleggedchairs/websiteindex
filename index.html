@@ -48,6 +48,13 @@
     section { margin-bottom: 3rem; }
     h1, h2 { text-align: center; }
     h2 { border-bottom: 1px solid #555; padding-bottom: 0.3rem; }
+    h1.tagline {
+      white-space: nowrap;
+      font-size: 1.8rem;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px dashed #666;
+      padding-bottom: 1rem;
+    }
     ul { padding-left: 1.5rem; }
     .services, .work-gallery {
       display: flex;
@@ -105,7 +112,8 @@
     <a href="#contact">Contact</a>
   </nav>
   <main>
-    <h1 style="white-space: nowrap; font-size: 1.8rem;">Precision CNC &amp; 3D Printing in a One-Man Fabrication Shop</h1>
+    <h1 class="tagline">Precision CNC &amp; 3D Printing in a One-Man Fabrication Shop</h1>
+
     <section id="services">
       <h2>Services</h2>
       <div class="services">
@@ -115,6 +123,7 @@
         <div><h3>General Fabrication</h3><ul><li>Welding &amp; assembly</li><li>Fixture design</li><li>Hardware installation</li></ul></div>
       </div>
     </section>
+
     <section id="work">
       <h2>Work</h2>
       <div class="work-gallery">
@@ -123,10 +132,12 @@
         <div><img alt="3D printed Stranger Things collectible coin" src="images/work_image_3.jpg" style="width: 100%; border-radius: 4px;"/><p>Stranger Things Coin</p></div>
       </div>
     </section>
+
     <section id="about">
       <h2>About</h2>
       <p>I'm Paul. I run this one-man shop. I like things that work well, look good, and maybe wobble just a little. I'm here to help you bring ideas into the real world — precise, reliable, and made with care.</p>
     </section>
+
     <section id="contact">
       <h2>Contact</h2>
       <form action="https://formspree.io/f/your-form-id" method="POST">
