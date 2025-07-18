@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,13 +50,19 @@
     h1, h2 { text-align: center; }
     h2 { border-bottom: 1px solid #555; padding-bottom: 0.3rem; }
     h1.tagline {
-      color: #f4d35e;
-      white-space: nowrap;
-      font-size: 1.8rem;
-      margin-bottom: 2.5rem;
-      border-bottom: 1px dashed #666;
-      padding-bottom: 1rem;
-    }
+  color: #f4d35e;
+  white-space: normal;
+  font-size: 1.8rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px dashed #666;
+  padding-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+  h1.tagline {
+    font-size: 1.2rem;
+  }
+}
     ul { padding-left: 1.5rem; }
     .services, .work-gallery {
       display: flex;
