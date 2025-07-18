@@ -1,3 +1,9 @@
-# Three Legged Chairs
+# Three Legged Chairs Website
 
-A one-man shop offering CNC routing, 3D printing, plasma cutting, and custom fabrication. Built with precision, creativity, and a touch of wobble.
+This is the official site for **Three Legged Chairs** — a one-man fabrication shop specializing in CNC routing, 3D printing, CNC plasma cutting, and general fabrication. Built with HTML/CSS and hosted via GitHub Pages.
+
+## Features
+- Mobile responsive
+- Clean and minimalist layout
+- Email contact form
+- Instagram link
