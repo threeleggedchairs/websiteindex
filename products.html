@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,12 +63,81 @@
   <main>
     <h1>Product Listing</h1>
     <div class="product">
-      <img src="images/shoot-a-lite-holster.jpg" alt="Shoot-a-Lite Striker holster"/>
+      
+<div class="carousel">
+  <button class="carousel-arrow left" onclick="prevSlide()">&#10094;</button>
+  <div class="carousel-track">
+    <img class="carousel-slide active" src="images/shoot-a-lite-1_padded.jpg" alt="Shoot-a-Lite 1">
+    <img class="carousel-slide" src="images/shoot-a-lite-2_padded.jpg" alt="Shoot-a-Lite 2">
+    <img class="carousel-slide" src="images/shoot-a-lite-3_padded.jpg" alt="Shoot-a-Lite 3">
+    <img class="carousel-slide" src="images/shoot-a-lite-4_padded.jpg" alt="Shoot-a-Lite 4">
+  </div>
+  <button class="carousel-arrow right" onclick="nextSlide()">&#10095;</button>
+</div>
+
       <h2>Shoot-a-Lite Striker Holster</h2>
       <p>Holster for carrying your Shoot-a-Lite torch striker.</p>
       <p><strong>$15 + shipping (Continental US)</strong></p>
       <a href="https://www.paypal.com/ncp/payment/8E8XLEH8C3438" target="_blank" class="buy-now-button">Buy Now</a>
     </div>
   </main>
+
+<style>
+  .carousel {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 1rem;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  .carousel-track {
+    display: flex;
+    transition: transform 0.3s ease;
+  }
+  .carousel-slide {
+    flex: 0 0 100%;
+    display: none;
+    border-radius: 8px;
+  }
+  .carousel-slide.active {
+    display: block;
+  }
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .carousel-arrow.left { left: 10px; }
+  .carousel-arrow.right { right: 10px; }
+</style>
+<script>
+  let slideIndex = 0;
+  const slides = document.querySelectorAll('.carousel-slide');
+
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    slides[index].classList.add('active');
+  }
+
+  function nextSlide() {
+    slideIndex = (slideIndex + 1) % slides.length;
+    showSlide(slideIndex);
+  }
+
+  function prevSlide() {
+    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+    showSlide(slideIndex);
+  }
+
+  if (slides.length > 0) showSlide(slideIndex);
+</script>
 </body>
 </html>
