@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,13 +58,26 @@
     .buy-now-button:hover {
       background: #ffe27a;
     }
-  </style>
+  
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 2rem;
+    }
+    .product {
+      flex: 1 1 45%;
+      max-width: 420px;
+    }
+</style>
 </head>
 <body>
   <main>
     <h1>Product Listing</h1>
-    <div class="product">
+    <div class="product-grid">
+  <div class="product">
       
+
 <div class="carousel">
   <button class="carousel-arrow left" onclick="prevSlide()">&#10094;</button>
   <div class="carousel-track">
@@ -75,11 +89,32 @@
   <button class="carousel-arrow right" onclick="nextSlide()">&#10095;</button>
 </div>
 
+
       <h2>Shoot-a-Lite Striker Holster</h2>
       <p>Holster for carrying your Shoot-a-Lite torch striker.</p>
       <p><strong>$15 + shipping (Continental US)</strong></p>
       <a href="https://www.paypal.com/ncp/payment/8E8XLEH8C3438" target="_blank" class="buy-now-button">Buy Now</a>
-    </div>
+      </div> <!-- end of product -->
+  <div class="product">
+    
+<div class="carousel">
+  <button class="carousel-arrow left" onclick="prevBenchSlide()">&#10094;</button>
+  <div class="carousel-track bench-track">
+    <img class="carousel-slide bench-slide active" src="images/bench_5_b.jpg" alt="Bench 1">
+    <img class="carousel-slide bench-slide" src="images/bench_1.jpg" alt="Bench 2">
+    <img class="carousel-slide bench-slide" src="images/bench_3.jpg" alt="Bench 3">
+    <img class="carousel-slide bench-slide" src="images/bench_4.jpg" alt="Bench 4">
+    <img class="carousel-slide bench-slide" src="images/bench_2.jpg" alt="Bench 5">
+  </div>
+  <button class="carousel-arrow right" onclick="nextBenchSlide()">&#10095;</button>
+</div>
+
+    <h2>Slotted Pine Bench</h2>
+    <p>Our classicly modern handmade pine bench with a slotted top. Minimalist, sturdy, Light and perfect for indoor or outdoor use.</p>
+    <p><strong>Raw Pine $135 or Primed for $155. A painted option isnt available at the moment.</strong></p>
+    <a href="https://www.paypal.com/ncp/payment/VNCNNKHX9T52C" target="_blank" class="buy-now-button">Buy Now</a>
+  </div>
+</div> <!-- end of product-grid -->
   </main>
 
 <style>
@@ -91,13 +126,28 @@
     overflow: hidden;
     border-radius: 8px;
   }
-  .carousel-track {
-    display: flex;
-    transition: transform 0.3s ease;
+  .carousel-slide {
+    display: none;
+    width: 100%;
+    border-radius: 8px;
+  }
+  .carousel-slide.active {
+    display: block;
+  }
+</style>
+
+<style>
+  .carousel {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 1rem;
+    overflow: hidden;
+    border-radius: 8px;
   }
   .carousel-slide {
-    flex: 0 0 100%;
     display: none;
+    width: 100%;
     border-radius: 8px;
   }
   .carousel-slide.active {
@@ -115,8 +165,12 @@
     cursor: pointer;
     z-index: 1;
   }
-  .carousel-arrow.left { left: 10px; }
-  .carousel-arrow.right { right: 10px; }
+  .carousel-arrow.left {
+    left: 10px;
+  }
+  .carousel-arrow.right {
+    right: 10px;
+  }
 </style>
 <script>
   let slideIndex = 0;
@@ -137,7 +191,31 @@
     showSlide(slideIndex);
   }
 
-  if (slides.length > 0) showSlide(slideIndex);
+  if (slides.length > 0) {
+    showSlide(slideIndex);
+  }
+</script>
+
+<script>
+  let benchIndex = 0;
+  const benchSlides = document.querySelectorAll('.bench-slide');
+
+  function showBenchSlide(index) {
+    benchSlides.forEach(slide => slide.classList.remove('active'));
+    benchSlides[index].classList.add('active');
+  }
+
+  function nextBenchSlide() {
+    benchIndex = (benchIndex + 1) % benchSlides.length;
+    showBenchSlide(benchIndex);
+  }
+
+  function prevBenchSlide() {
+    benchIndex = (benchIndex - 1 + benchSlides.length) % benchSlides.length;
+    showBenchSlide(benchIndex);
+  }
+
+  if (benchSlides.length > 0) showBenchSlide(benchIndex);
 </script>
 </body>
 </html>
