@@ -95,10 +95,22 @@
       <a href="https://www.paypal.com/ncp/payment/8E8XLEH8C3438" target="_blank" class="buy-now-button">Buy Now</a>
       </div> <!-- end of product -->
   <div class="product">
-    <img src="images/bench_cropped_resized.jpg" alt="Slotted Pine Bench"/>
+    
+<div class="carousel">
+  <button class="carousel-arrow left" onclick="prevBenchSlide()">&#10094;</button>
+  <div class="carousel-track bench-track">
+    <img class="carousel-slide bench-slide active" src="images/bench_1.jpg" alt="Bench 1">
+    <img class="carousel-slide bench-slide" src="images/bench_2.jpg" alt="Bench 2">
+    <img class="carousel-slide bench-slide" src="images/bench_3.jpg" alt="Bench 3">
+    <img class="carousel-slide bench-slide" src="images/bench_4.jpg" alt="Bench 4">
+    <img class="carousel-slide bench-slide" src="images/bench_5.jpg" alt="Bench 5">
+  </div>
+  <button class="carousel-arrow right" onclick="nextBenchSlide()">&#10095;</button>
+</div>
+
     <h2>Slotted Pine Bench</h2>
-    <p>Our classicly modern handmade pine bench with a slotted top. Minimalist, sturdy, Light and perfect for indoor or outdoor use.</p>
-    <p><strong>Raw Pine $135 or Primed for $155. A painted option isnt available at the moment.</strong></p>
+    <p>Our classicly modern handmade pine bench with a slotted top. Minimalist, sturdy, and perfect for indoor or outdoor use.</p>
+    <p><strong>$145</strong></p>
     <a href="https://www.paypal.com/ncp/payment/BENCHPAYMENTLINK" target="_blank" class="buy-now-button">Buy Now</a>
   </div>
 </div> <!-- end of product-grid -->
@@ -181,6 +193,28 @@
   if (slides.length > 0) {
     showSlide(slideIndex);
   }
+</script>
+
+<script>
+  let benchIndex = 0;
+  const benchSlides = document.querySelectorAll('.bench-slide');
+
+  function showBenchSlide(index) {
+    benchSlides.forEach(slide => slide.classList.remove('active'));
+    benchSlides[index].classList.add('active');
+  }
+
+  function nextBenchSlide() {
+    benchIndex = (benchIndex + 1) % benchSlides.length;
+    showBenchSlide(benchIndex);
+  }
+
+  function prevBenchSlide() {
+    benchIndex = (benchIndex - 1 + benchSlides.length) % benchSlides.length;
+    showBenchSlide(benchIndex);
+  }
+
+  if (benchSlides.length > 0) showBenchSlide(benchIndex);
 </script>
 </body>
 </html>
