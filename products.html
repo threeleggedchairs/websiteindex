@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,8 +33,16 @@
       text-align: center;
       margin-bottom: 2rem;
     }
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 2rem;
+    }
     .product {
       text-align: center;
+      flex: 1 1 45%;
+      max-width: 420px;
     }
     .product img {
       width: 100%;
@@ -58,165 +64,154 @@
     .buy-now-button:hover {
       background: #ffe27a;
     }
-  
-    .product-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      gap: 2rem;
+
+    /* Carousel (consolidated) */
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto 1rem;
+      overflow: hidden;
+      border-radius: 8px;
     }
-    .product {
-      flex: 1 1 45%;
-      max-width: 420px;
+    .carousel-slide {
+      display: none;
+      width: 100%;
+      border-radius: 8px;
     }
-</style>
+    .carousel-slide.active {
+      display: block;
+    }
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+      border: none;
+      padding: 0.5rem 0.8rem;
+      cursor: pointer;
+      z-index: 1;
+      line-height: 1;
+    }
+    .carousel-arrow.left { left: 10px; }
+    .carousel-arrow.right { right: 10px; }
+
+    /* Small screens */
+    @media (max-width: 600px) {
+      .product { flex: 1 1 100%; }
+    }
+  </style>
 </head>
 <body>
   <main>
     <h1>Product Listing</h1>
     <div class="product-grid">
-  <div class="product">
-      
+      <div class="product">
+        <div class="carousel">
+          <button class="carousel-arrow left" onclick="prevSlide()" aria-label="Previous image">&#10094;</button>
+          <div class="carousel-track">
+            <img class="carousel-slide active" src="images/shoot-a-lite_1.jpg" alt="Shoot-a-Lite torch striker holster, view 1">
+            <img class="carousel-slide" src="images/shoot-a-lite_2.jpg" alt="Shoot-a-Lite torch striker holster, view 2">
+            <img class="carousel-slide" src="images/shoot-a-lite_3.jpg" alt="Shoot-a-Lite torch striker holster, view 3">
+            <img class="carousel-slide" src="images/shoot-a-lite_4.jpg" alt="Shoot-a-Lite torch striker holster, view 4">
+          </div>
+          <button class="carousel-arrow right" onclick="nextSlide()" aria-label="Next image">&#10095;</button>
+        </div>
 
-<div class="carousel">
-  <button class="carousel-arrow left" onclick="prevSlide()">&#10094;</button>
-  <div class="carousel-track">
-    <img class="carousel-slide active" src="images/shoot-a-lite_1.jpg" alt="Shoot-a-Lite 1">
-    <img class="carousel-slide" src="images/shoot-a-lite_2.jpg" alt="Shoot-a-Lite 2">
-    <img class="carousel-slide" src="images/shoot-a-lite_3.jpg" alt="Shoot-a-Lite 3">
-    <img class="carousel-slide" src="images/shoot-a-lite_4.jpg" alt="Shoot-a-Lite 4">
-  </div>
-  <button class="carousel-arrow right" onclick="nextSlide()">&#10095;</button>
-</div>
-
-
-      <h2>Shoot-a-Lite Striker Holster</h2>
-      <p>Holster for carrying your Shoot-a-Lite torch striker.</p>
-      <p><strong>$15 + shipping (Continental US)</strong></p>
-      <a href="https://www.paypal.com/ncp/payment/8E8XLEH8C3438" target="_blank" class="buy-now-button">Buy Now</a>
+        <h2>Shoot-a-Lite Striker Holster</h2>
+        <p>Holster for carrying your Shoot-a-Lite torch striker.</p>
+        <p><strong>$15 + shipping (Continental US)</strong></p>
+        <a href="https://www.paypal.com/ncp/payment/8E8XLEH8C3438" target="_blank" rel="noopener" class="buy-now-button">Buy Now</a>
       </div> <!-- end of product -->
-  <div class="product">
-    
-<div class="carousel">
-  <button class="carousel-arrow left" onclick="prevBenchSlide()">&#10094;</button>
-  <div class="carousel-track bench-track">
-    <img class="carousel-slide bench-slide active" src="images/bench_5_b.jpg" alt="Bench 1">
-    <img class="carousel-slide bench-slide" src="images/bench_1.jpg" alt="Bench 2">
-    <img class="carousel-slide bench-slide" src="images/bench_3.jpg" alt="Bench 3">
-    <img class="carousel-slide bench-slide" src="images/bench_4.jpg" alt="Bench 4">
-    <img class="carousel-slide bench-slide" src="images/bench_2.jpg" alt="Bench 5">
-    <img class="carousel-slide bench-slide" src="images/bench_6.jpg" alt="Bench 6">
-  </div>
-  <button class="carousel-arrow right" onclick="nextBenchSlide()">&#10095;</button>
-</div>
 
-    <h2>Slotted Pine Bench</h2>
-    <p>Our classicly modern handmade pine bench with a slotted top. Minimalist, sturdy, Light and perfect for indoor or outdoor use.</p>
-    <p><strong>Raw Pine $118 or Primed for $138. *** For a very limited time, this bench is available in "Toasted Bagel" / Behr Exterior paint, LIMITED TIME ONLY FOR $158. And... Free Delivery within 5 miles of me! Please allow one week lead time between purchase and delivery. Thank you.</strong></p>
-    <a href="https://www.paypal.com/ncp/payment/VNCNNKHX9T52C" target="_blank" class="buy-now-button">Buy Now</a>
-  </div>
-</div> <!-- end of product-grid -->
+      <div class="product">
+        <div class="carousel">
+          <button class="carousel-arrow left" onclick="prevBenchSlide()" aria-label="Previous image">&#10094;</button>
+          <div class="carousel-track bench-track">
+            <img class="carousel-slide bench-slide active" src="images/bench_5_b.jpg" alt="Slotted pine bench, view 1">
+            <img class="carousel-slide bench-slide" src="images/bench_1.jpg" alt="Slotted pine bench, view 2">
+            <img class="carousel-slide bench-slide" src="images/bench_3.jpg" alt="Slotted pine bench, view 3">
+            <img class="carousel-slide bench-slide" src="images/bench_4.jpg" alt="Slotted pine bench, view 4">
+            <img class="carousel-slide bench-slide" src="images/bench_2.jpg" alt="Slotted pine bench, view 5">
+            <img class="carousel-slide bench-slide" src="images/bench_6.jpg" alt="Slotted pine bench, view 6">
+          </div>
+          <button class="carousel-arrow right" onclick="nextBenchSlide()" aria-label="Next image">&#10095;</button>
+        </div>
+
+        <h2>Slotted Pine Bench</h2>
+        <p>Our classicly modern handmade pine bench with a slotted top. Minimalist, sturdy, Light and perfect for indoor or outdoor use.</p>
+        <p><strong>Raw Pine $118 or Primed for $138. *** For a very limited time, this bench is available in "Toasted Bagel" / Behr Exterior paint, LIMITED TIME ONLY FOR $158. And... Free Delivery within 5 miles of me! Please allow one week lead time between purchase and delivery. Thank you.</strong></p>
+        <a href="https://www.paypal.com/ncp/payment/VNCNNKHX9T52C" target="_blank" rel="noopener" class="buy-now-button">Buy Now</a>
+      </div>
+    </div> <!-- end of product-grid -->
   </main>
 
-<style>
-  .carousel {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto 1rem;
-    overflow: hidden;
-    border-radius: 8px;
-  }
-  .carousel-slide {
-    display: none;
-    width: 100%;
-    border-radius: 8px;
-  }
-  .carousel-slide.active {
-    display: block;
-  }
-</style>
+  <script>
+    // Initialize first carousel after DOM is ready
+    document.addEventListener("DOMContentLoaded", () => {
+      let slideIndex = 0;
+      const slides = document.querySelectorAll('.carousel-slide:not(.bench-slide)');
 
-<style>
-  .carousel {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto 1rem;
-    overflow: hidden;
-    border-radius: 8px;
-  }
-  .carousel-slide {
-    display: none;
-    width: 100%;
-    border-radius: 8px;
-  }
-  .carousel-slide.active {
-    display: block;
-  }
-  .carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    background: rgba(0, 0, 0, 0.4);
-    color: white;
-    border: none;
-    padding: 0.5rem 0.8rem;
-    cursor: pointer;
-    z-index: 1;
-  }
-  .carousel-arrow.left {
-    left: 10px;
-  }
-  .carousel-arrow.right {
-    right: 10px;
-  }
-</style>
-<script>
-  let slideIndex = 0;
-  const slides = document.querySelectorAll('.carousel-slide');
+      function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        if (slides.length) {
+          slides[index].classList.add('active');
+        }
+      }
 
-  function showSlide(index) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    slides[index].classList.add('active');
-  }
+      function nextSlide() {
+        if (!slides.length) return;
+        slideIndex = (slideIndex + 1) % slides.length;
+        showSlide(slideIndex);
+      }
 
-  function nextSlide() {
-    slideIndex = (slideIndex + 1) % slides.length;
-    showSlide(slideIndex);
-  }
+      function prevSlide() {
+        if (!slides.length) return;
+        slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+        showSlide(slideIndex);
+      }
 
-  function prevSlide() {
-    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-    showSlide(slideIndex);
-  }
+      if (slides.length > 0) showSlide(slideIndex);
 
-  if (slides.length > 0) {
-    showSlide(slideIndex);
-  }
-</script>
+      // Expose controls for inline onclick handlers
+      window.nextSlide = nextSlide;
+      window.prevSlide = prevSlide;
+    });
+  </script>
 
-<script>
-  let benchIndex = 0;
-  const benchSlides = document.querySelectorAll('.bench-slide');
+  <script>
+    // Initialize bench carousel after DOM is ready
+    document.addEventListener("DOMContentLoaded", () => {
+      let benchIndex = 0;
+      const benchSlides = document.querySelectorAll('.bench-slide');
 
-  function showBenchSlide(index) {
-    benchSlides.forEach(slide => slide.classList.remove('active'));
-    benchSlides[index].classList.add('active');
-  }
+      function showBenchSlide(index) {
+        benchSlides.forEach(slide => slide.classList.remove('active'));
+        if (benchSlides.length) {
+          benchSlides[index].classList.add('active');
+        }
+      }
 
-  function nextBenchSlide() {
-    benchIndex = (benchIndex + 1) % benchSlides.length;
-    showBenchSlide(benchIndex);
-  }
+      function nextBenchSlide() {
+        if (!benchSlides.length) return;
+        benchIndex = (benchIndex + 1) % benchSlides.length;
+        showBenchSlide(benchIndex);
+      }
 
-  function prevBenchSlide() {
-    benchIndex = (benchIndex - 1 + benchSlides.length) % benchSlides.length;
-    showBenchSlide(benchIndex);
-  }
+      function prevBenchSlide() {
+        if (!benchSlides.length) return;
+        benchIndex = (benchIndex - 1 + benchSlides.length) % benchSlides.length;
+        showBenchSlide(benchIndex);
+      }
 
-  if (benchSlides.length > 0) showBenchSlide(benchIndex);
-</script>
+      if (benchSlides.length > 0) showBenchSlide(benchIndex);
+
+      // Expose controls for inline onclick handlers
+      window.nextBenchSlide = nextBenchSlide;
+      window.prevBenchSlide = prevBenchSlide;
+    });
+  </script>
 </body>
 </html>
